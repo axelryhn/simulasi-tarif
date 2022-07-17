@@ -10,7 +10,7 @@
               <label style="font-size: 13px;"><?= $this->session->flashdata('msg_alert'); ?></label>
             </div>
           <?php } ?>
-          <?= form_open_multipart('data_master/add_new/admin', array('method' => 'post')); ?>
+          <?= form_open_multipart('Dataadmin/add_new', array('method' => 'post')); ?>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group row">
@@ -27,7 +27,7 @@
                   <select name="type" class="form-control">
                     <option disabled selected>-- Pilih --</option>
                     <option value="admin">Admin</option>
-                    
+                    <option value="pegawai">Pegawai</option>
                   </select>
                 </div>
               </div>

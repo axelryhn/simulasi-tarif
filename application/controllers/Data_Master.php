@@ -13,6 +13,7 @@ class Data_Master extends CI_Controller
 			redirect(base_url('auth/login'));
 		});
 		$this->load->model('M_DataMaster');
+		$this->load->model('M_Statuspegawai');
 		$this->m_datamaster = $this->M_DataMaster;
 	}
 
@@ -28,6 +29,14 @@ class Data_Master extends CI_Controller
 		$data_content['title_page'] = 'Data Master Admin';
 		$data['content'] = $this->load->view('partial/DataMasterAdmin/V_Admin_DataMasterAdmin_Read', $data_content, true);
 		$this->load->view('V_DataMaster_Admin', $data);
+
+
+		// $queryAllStatuspegawai = $this->M_Statuspegawai->getData();
+		// $DATA = array('queryAllSts' => $queryAllStatuspegawai);
+		// $data = generate_page('Status Pegawai', 'Statuspegawai/index', 'Admin');
+
+		// $data['content'] = $this->load->view('partial/Statuspegawai/Statuspegawai',  $DATA, true);
+		// $this->load->view('V_Statuspegawai', $data);
 	}
 
 	public function admin_ajax()
@@ -113,13 +122,13 @@ class Data_Master extends CI_Controller
 
 	public function edit()
 	{
-		if (empty($this->uri->segment('3'))) {
-			redirect(base_url());
-		}
+		// if (empty($this->uri->segment('3'))) {
+		// 	redirect(base_url());
+		// }
 
-		if (empty($this->uri->segment('4'))) {
-			redirect(base_url());
-		}
+		// if (empty($this->uri->segment('4'))) {
+		// 	redirect(base_url());
+		// }
 
 		$name = $this->uri->segment('3');
 		$id = $this->uri->segment('4');

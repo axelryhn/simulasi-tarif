@@ -36,9 +36,9 @@
             </a>
             <div class="collapse" id="ui-dm">
               <ul class="nav flex-column sub-menu">
-                <?= generate_navlink($path_page, 'data_master/admin', 'Data Admin'); ?>
+                <?= generate_navlink($path_page, 'Dataadmin/index', 'Data Admin'); ?>
 
-                <?= generate_navlink($path_page, 'data_master/pegawai', 'Data Akun Pegawai'); ?>
+                <!-- <?= generate_navlink($path_page, 'data_master/pegawai', 'Data Akun Pegawai'); ?> -->
                 <!-- <?= generate_navlink($path_page, 'Datapegawai/index', 'Data Lengkap Pegawai'); ?> -->
                 <?= generate_navlink($path_page, 'Statuspegawai/index', 'Data Status Pegawai'); ?>
               </ul>

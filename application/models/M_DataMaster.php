@@ -6,8 +6,10 @@ class M_DataMaster extends CI_Model
 
 	public function admin_list_all()
 	{
-		$q = $this->db->select('*')->get('tb_admin');
-		return $q->result();
+
+		$this->db->select('*');
+		$q = $this->db->get('tb_user')->result();
+		return $q;
 	}
 
 	public function jabatan_list_all()
@@ -77,7 +79,7 @@ class M_DataMaster extends CI_Model
 
 	public function get_data_admin($id)
 	{
-		$q = $this->db->select('*')->from('tb_admin')->where('id_user', $id)->limit(1)->get();
+		$q = $this->db->select('*')->from('tb_user')->where('id', $id)->limit(1)->get();
 		if ($q->num_rows() < 1) {
 			redirect(base_url('/data_master/admin'));
 		}
@@ -127,20 +129,28 @@ class M_DataMaster extends CI_Model
 
 	public function admin_update($id_user, $username, $nip, $namalengkap, $password, $type, $avatar)
 	{
+		$role = 0;
+		if ($type == 'admin') {
+			$role = 1;
+		} else {
+			$role = 2;
+		}
+
 		$d_t_d = array(
-			'id_user' => $id_user,
+			'id' => $id_user,
 			'username' => $username,
 			'nip' => $nip,
-			'namalengkap' => $namalengkap,
-			'type' => $type
+			'nama' => $namalengkap,
+			'id_role' => $role
 		);
+
 		if (!empty($password)) {
 			$d_t_d['password'] = md5($password);
 		}
 		if (!empty($avatar)) {
 			$d_t_d['avatar'] = $avatar;
 		}
-		$this->db->where('id_user', $id_user)->update('tb_admin', $d_t_d);
+		$this->db->where('id', $id_user)->update('tb_user', $d_t_d);
 		$this->session->set_flashdata('msg_alert', 'Data admin berhasil diubah');
 	}
 
@@ -177,7 +187,7 @@ class M_DataMaster extends CI_Model
 
 	public function admin_delete($id)
 	{
-		$this->db->delete('tb_admin', array('id_user' => $id));
+		$this->db->delete('tb_user', array('id' => $id));
 	}
 
 	public function jabatan_delete($id)
@@ -208,19 +218,25 @@ class M_DataMaster extends CI_Model
 		$type,
 		$avatar = 0
 	) {
+		$role = 0;
+		if ($type == 'admin') {
+			$role = 1;
+		} else {
+			$role = 2;
+		}
 		$d_t_d = array(
 			'username' => $username,
 			'nip' => $nip,
-			'namalengkap' => $namalengkap,
+			'nama' => $namalengkap,
 			'password' => md5($password),
-			'type' => $type,
+			'id_role' => $role,
 			'avatar' => $avatar
 		);
 		if (empty($avatar)) {
 			$d_t_d['avatar'] = 'avatar.png';
 		}
-		$this->db->insert('tb_admin', $d_t_d);
-		$this->session->set_flashdata('msg_alert', 'Admin baru berhasil ditambahkan');
+		$this->db->insert('tb_user', $d_t_d);
+		$this->session->set_flashdata('msg_alert', $type . ' baru berhasil ditambahkan');
 	}
 
 	public function jabatan_add_new(

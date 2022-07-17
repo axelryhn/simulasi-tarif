@@ -60,7 +60,7 @@ function data_pegawai_index() {
 function data_admin_index() {
     $('table.data').DataTable({
         ajax: {
-            url: base_url + 'data_master/admin_ajax',
+            url: base_url + 'Dataadmin/admin_ajax',
         },
         columns: [{
                 title: "No.",
@@ -72,11 +72,11 @@ function data_admin_index() {
             },
             {
                 title: "Nama Lengkap",
-                data: 'namalengkap'
+                data: 'nama'
             },
             {
                 title: "Type",
-                data: 'type'
+                data: 'id_role'
             },
             {
                 title: "Nip",
@@ -84,16 +84,16 @@ function data_admin_index() {
             },
             {
                 title: "Action",
-                data: 'id_user'
+                data: 'id'
             }
         ],
         createdRow: function(row, data, index) {
             $('td', row).eq(0).html(index + 1);
-            if (data['id_user']) {
-                var id = data['id_user'],
+            if (data['id']) {
+                var id = data['id'],
                     html = '';
-                html += '<button type="button" onclick="javascript:top.location.href=\'' + base_url + 'data_master/edit/admin/' + id + '\';" class="btn btn-warning btn-icons btn-rounded"><i class="mdi mdi-pencil-box-outline"></i></button>';
-                html += ' <button type="button" onclick="javascript:top.location.href=\'' + base_url + 'data_master/delete/admin/' + id + '\';" class="btn btn-icons btn-rounded btn-inverse-danger"><i class="mdi mdi-delete"></i></button>';
+                html += '<button type="button" onclick="javascript:top.location.href=\'' + base_url + 'Dataadmin/edit/admin/' + id + '\';" class="btn btn-warning btn-icons btn-rounded"><i class="mdi mdi-pencil-box-outline"></i></button>';
+                html += ' <button type="button" onclick="javascript:top.location.href=\'' + base_url + 'Dataadmin/delete/' + id + '\';" class="btn btn-icons btn-rounded btn-inverse-danger"><i class="mdi mdi-delete"></i></button>';
                 $('td', row).eq(-1).html(html);
             }
         }
@@ -102,19 +102,9 @@ function data_admin_index() {
 
 
 
-
-
-
-
-
-
-
-
-
-
 $(document).ready(function() {
     switch (true) {
-        case (window.location.href.indexOf('/data_master/admin') != -1):
+        case (window.location.href.indexOf('/Dataadmin') != -1):
             data_admin_index();
             break;
         case (window.location.href.indexOf('/data_master/jabatan') != -1):
