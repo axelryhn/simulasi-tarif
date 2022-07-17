@@ -7,7 +7,8 @@
                 Tambah data
             </button> -->
             <br>
-            <?php if ($this->session->flashdata('msg_alert')) { ?>
+            <?php $CI = &get_instance();
+            if ($this->session->flashdata('msg_alert')) { ?>
 
                 <div class="alert alert-info">
                     <label style="font-size: 13px;"><?= $this->session->flashdata('msg_alert'); ?></label>
@@ -37,10 +38,23 @@
                                 <tr>
                                     <td><?php echo $no++ ?></td>
                                     <td><?php echo $row->jenis ?></td>
-                                    <td><?php echo $row->value ?></td>
+                                    <td><?php echo number_format($row->value, 2, ',', '.') ?></td>
                                     <td><?php echo $row->timestamp ?></td>
-                                    <td><?php echo $row->aktivitas ?></td>
-                                    <td><?php echo $row->id_user ?></td>
+                                    <td>
+
+                                        <?php
+                                        $dataArray = json_decode($row->aktivitas);
+
+                                        foreach ($dataArray as $item) :
+                                            echo "<div>" . $item->nama . " = " . $item->value . "</div>";
+                                        endforeach
+                                        ?>
+
+                                    </td>
+                                    <td><?php
+                                        $nama = $CI->getNama($row->id_user);
+                                        echo $nama ?>
+                                    </td>
                                 </tr>
 
 
@@ -49,9 +63,29 @@
                             <td colspan="7" align="center"><strong>Data Kosong</strong></td>
                         <?php } ?>
 
-                    </tbody>
-                </table>
 
+
+
+                    </tbody>
+                </table> <br>
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Summary</h5>
+                    </div>
+                    <div class="card-body">
+
+                        <?php
+                        $dataTotal = $CI->getTotal();
+                        echo "total Cair = " . $dataTotal['totalCair'];
+                        echo "<br>";
+                        echo "total Kering =" . $dataTotal['totalKering'];
+                        echo "<br>";
+                        echo "total Value Cair = Rp " . number_format($dataTotal['totalValueCair'], 2, ',', '.');
+                        echo "<br>";
+                        echo "total Value Kering = Rp " . number_format($dataTotal['totalValueKering'], 2, ',', '.');
+                        ?>
+                    </div>
+                </div>
                 </p>
             </div>
         </div>

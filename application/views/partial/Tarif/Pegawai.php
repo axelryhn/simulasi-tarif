@@ -2,6 +2,7 @@
     <div class="card">
         <?php
         $CI = &get_instance();
+        $hasilnoFormat = 0;
         if (isset($_POST['hitung'])) {
             $isLanjut = 0;
             $operasi = $_POST['operasi'];
@@ -11,6 +12,7 @@
                 }
             endforeach;
             $hasil = 0;
+
             if ($isLanjut == 0) {
                 switch ($operasi) {
                     case 'kering':
@@ -19,6 +21,7 @@
                             $total +=  ($_POST['data_' . $row->id] * $row->kering);
                         endforeach;
                         $total += 6000;
+                        $hasilnoFormat = $total;
                         $hasil = number_format($total, 2, ',', '.');
                         break;
                     case 'cair':
@@ -28,20 +31,22 @@
                             $total +=  ($_POST['data_' . $row->id] * $row->cair);
                         endforeach;
                         $total += 6000;
+                        $hasilnoFormat = $total;
                         $hasil = number_format($total, 2, ',', '.');
                         break;
                 }
+                $datas = array();
+                foreach ($queryAllRgl as $row) :
+                    $nama = $row->nama;
+                    $value = $_POST['data_' . $row->id];
+                    $a = array("nama" => $nama, "value" => $value);
+                    array_push($datas, $a);
+                endforeach;
+                $CI->simpanReport($operasi, $hasilnoFormat, json_encode($datas));
             } else {
                 $hasil = 0;
             }
-            $datas = array();
-            foreach ($queryAllRgl as $row) :
-                $nama = $row->nama;
-                $value = $_POST['data_' . $row->id];
-                $a = array("nama" => $nama, "value" => $value);
-                array_push($datas, $a);
-            endforeach;
-            $CI->simpanReport($operasi, $hasil, json_encode($datas));
+
             // $controller->simpanReport($operasi, $hasil, json_encode($datas));
         }
 

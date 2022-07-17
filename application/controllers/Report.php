@@ -32,6 +32,18 @@ class Report extends CI_Controller
 
         // print_r($data);
     }
+
+    public function getNama($id)
+    {
+        $user = $this->M_Report->getNama($id);
+        return $user->nama;
+    }
+
+
+    public function getTotal()
+    {
+        return  $this->M_Report->getTotal();
+    }
 }
 
 	
