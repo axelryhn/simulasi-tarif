@@ -10,7 +10,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Nama Lengkap</label>
-                    <input type="text" name="nama" class="form-control" value="<?= $user_name; ?>" placeholder="Nama Lengkap">
+                    <input type="text" name="nama" class="form-control" value="<?= $user_name; ?>" placeholder="Nama Lengkap" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Status</label>

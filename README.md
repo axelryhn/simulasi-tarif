@@ -1,22 +1,11 @@
-# Sistem Informasi Kepegawaian
-Sistem Informasi Kepegawaian based on CodeIgniter
+# Web Simulasi Tarif Pelabuhan by Axel Reyhan
 
-## Overview
-This work is belongs to my homework task
-
-## Usage
-You can see the full of website on http://localhost/simpeg
 - Admin
 
-  - E-mail : admin@gmail.com
-  - Password : admin
+  - E-mail : 123
+  - Password : 123
 
-- Ka. BAAK
+- User
 
-  - E-mail : baak@gmail.com
-  - Password : baak
-
-- Employee
-
-  - E-mail : pegawai@gmail.com
-  - Password : pegawai
+  - E-mail : 123456
+  - Password : 123
