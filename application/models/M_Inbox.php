@@ -10,6 +10,13 @@ class M_Inbox extends CI_Model
         return $query->result();
     }
 
+    function getNama($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('tb_user');
+        return $query->row();
+    }
+
     function insertData($data)
     {
         $this->db->insert('tb_inbox', $data);

@@ -11,10 +11,17 @@ class Inbox extends CI_Controller
 
     public function index()
     {
-
+        switch ($this->session->userdata('user_type')) {
+            case '1':
+                $user = "Admin";
+                break;
+            case '2':
+                $user = "Pegawai";
+                break;
+        }
         $queryAllInbox = $this->M_Inbox->getData();
         $DATA = array('queryAllInb' => $queryAllInbox);
-        $data = generate_page('Inbox', 'Inbox/index', 'Admin');
+        $data = generate_page('Inbox', 'Inbox/index', $user);
 
         $data['content'] = $this->load->view('partial/Inbox/Inbox',  $DATA, true);
         $this->load->view('V_Inbox', $data);
@@ -35,6 +42,12 @@ class Inbox extends CI_Controller
         $this->load->view('V_Inbox', $data);
     }
 
+    public function getNama($id)
+    {
+        $user = $this->M_Report->getNama($id);
+        return $user->nama;
+    }
+
     public function halaman_tambah()
     {
         $this->load->view('partial/Inbox/Inbox');
@@ -45,7 +58,7 @@ class Inbox extends CI_Controller
         $queryInboxDetail = $this->M_Inbox->getDataDetail($id);
         $DATA = array('queryInbDetail' => $queryInboxDetail);
         $data = generate_page('Inbox', 'Inbox/halaman_edit', 'Admin');
-        $data['content'] = $this->load->view('partial/Inbox/Edit',  $DATA, true);
+        $data['content'] = $this->load->view('partial/Inbox/Inbox_Edit',  $DATA, true);
         $this->load->view('V_Inbox', $data);
     }
 

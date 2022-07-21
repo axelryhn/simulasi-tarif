@@ -16,8 +16,8 @@
                     <label for="inputEmail4">Status</label>
                     <div class="form-group col-md-6">
                         <select id="status" name="status">
-                            <option value="Prioritas">Prioritas</option>
-                            <option value="Non Prioritas">Non Prioritas</option>
+                            <option value="Saran Masuk Prioritas">Prioritas</option>
+                            <option value="Saran Masuk Non Prioritas ">Non Prioritas</option>
                         </select>
                     </div>
                 </div>

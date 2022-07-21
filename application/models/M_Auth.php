@@ -4,17 +4,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class M_Auth extends CI_Model
 {
 
-	private function loginAdmin($nip, $password)
-	{
-		$q = $this->db->select('*')->where(array('nip' => $nip, 'password' => md5($password)))->get('tb_admin');
-		return $q;
-	}
+	// private function loginAdmin($nip, $password)
+	// {
+	// 	$q = $this->db->select('*')->where(array('nip' => $nip, 'password' => md5($password)))->get('tb_admin');
+	// 	return $q;
+	// }
 
-	private function loginPegawai($nip, $password)
-	{
-		$q = $this->db->select('*')->where(array('nip' => $nip, 'password' => md5($password)))->get('tb_pegawai');
-		return $q;
-	}
+	// private function loginPegawai($nip, $password)
+	// {
+	// 	$q = $this->db->select('*')->where(array('nip' => $nip, 'password' => md5($password)))->get('tb_pegawai');
+	// 	return $q;
+	// }
 
 	private function loginUser($nip, $password)
 	{

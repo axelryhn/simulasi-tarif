@@ -7,7 +7,8 @@
                 Tambah data
             </button> -->
             <br>
-            <?php if ($this->session->flashdata('msg_alert')) { ?>
+            <?php $CI = &get_instance();
+            if ($this->session->flashdata('msg_alert')) { ?>
 
                 <div class="alert alert-info">
                     <label style="font-size: 13px;"><?= $this->session->flashdata('msg_alert'); ?></label>
@@ -25,6 +26,7 @@
 
                             <th>Keterangan</th>
                             <th>Status</th>
+
                             <th>Aksi</th>
 
                         </tr>
@@ -40,9 +42,9 @@
                                     <td><?php echo $row->nama ?></td>
                                     <td><?php echo $row->keterangan ?></td>
                                     <td><?php echo $row->status ?></td>
-                                    <td>
 
-                                        <!-- <a href="<?php echo base_url('/Inbox/halaman_edit') ?>/<?php echo $row->id ?>" class="btn btn-sm btn-warning"><i class="fa fa-cancel">Edit</i></a> -->
+                                    <td>
+                                        <a href="<?php echo base_url('/Inbox/halaman_edit') ?>/<?php echo $row->id ?>" class="btn btn-sm btn-warning"><i class="fa fa-cancel">Edit</i></a>
                                         <!-- <a class="btn btn-sm btn-info" title="detail"><i class="fa fa-edit" data-bs-toggle="modal" data-bs-target="#exampleModal1">Edit</i></a> -->
                                         <a href="<?php echo base_url('/Inbox/fungsiDelete') ?>/<?php echo $row->id ?>" class="btn btn-sm btn-danger" title="edit"><i class="fa fa-cancel">Delete</i></a>
                                     </td>
