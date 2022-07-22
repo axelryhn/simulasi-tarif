@@ -42,13 +42,13 @@
               <span class="menu-title">Tarif</span>
             </a>
           </li>
-
+          <!-- 
           <li class="nav-item">
             <a class="nav-link" href="<?= base_url('Report/index'); ?>">
               <i class="menu-icon mdi mdi-file"></i>
               <span class="menu-report">Report</span>
             </a>
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <a class="nav-link" href="<?= base_url('Inbox/indexpegawai'); ?>">
