@@ -30,7 +30,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
 
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="pwd">Total</label>
@@ -60,7 +60,7 @@
                     <tr>
                         <th>No</th>
                         <th>Status</th>
-                        <th>Total</th>
+                        <!-- <th>Total</th> -->
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -73,7 +73,7 @@
                             <tr>
                                 <td><?php echo $no++ ?></td>
                                 <td><?php echo $row->status ?></td>
-                                <td><?php echo $row->total ?></td>
+                                <!-- <td><?php echo $row->total ?></td> -->
 
                                 <td>
                                     <a href="<?php echo base_url('/Statuspegawai/halaman_edit') ?>/<?php echo $row->id ?>" class="btn btn-sm btn-warning"><i class="fa fa-cancel">Edit</i></a>

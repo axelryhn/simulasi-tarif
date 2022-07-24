@@ -46,7 +46,7 @@
                                         $dataArray = json_decode($row->aktivitas);
 
                                         foreach ($dataArray as $item) :
-                                            echo "<div>" . $item->nama . " = " . $item->value . "</div>";
+                                            echo "<div>" . $item->nama . " = " . $item->value .  "</div>";
                                         endforeach
                                         ?>
 

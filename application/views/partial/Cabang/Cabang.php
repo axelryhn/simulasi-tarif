@@ -24,7 +24,7 @@
                                 <option value="Pusat">Pusat</option>
                                 <option value="Tanjung Priok">Tanjung Priok</option>
                                 <option value="Teluk Bayur">Teluk Bayur</option>
-                                <option value="Palembang">Palembang</option>
+                                <!-- <option value="Palembang">Palembang</option>
                                 <option value="Jambi">Jambi</option>
                                 <option value="Panjang">Panjang</option>
                                 <option value="Bengkulu">Bengkulu</option>
@@ -32,12 +32,12 @@
                                 <option value="Pontianak">Pontianak</option>
                                 <option value="Banten">Banten</option>
                                 <option value="Cirebon">Cirebon</option>
-                                <option value="Sunda Kelapa">Sunda Kelapa</option>
+                                <option value="Sunda Kelapa">Sunda Kelapa</option> -->
 
                             </select>
                         </div>
                     </div>
-                    
+
 
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="pwd">Jumlah</label>
@@ -67,8 +67,7 @@
                     <tr>
                         <th>No</th>
                         <th>Cabang</th>
-                        
-                        <th>Jumlah</th>
+                        <!-- <th>Jumlah</th> -->
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -81,8 +80,8 @@
                             <tr>
                                 <td><?php echo $no++ ?></td>
                                 <td><?php echo $row->cabang ?></td>
-                                
-                                <td><?php echo $row->jumlah ?></td>
+
+                                <!-- <td><?php echo $row->jumlah ?></td> -->
 
                                 <td>
                                     <a href="<?php echo base_url('/Cabang/halaman_edit') ?>/<?php echo $row->id ?>" class="btn btn-sm btn-warning"><i class="fa fa-cancel">Edit</i></a>

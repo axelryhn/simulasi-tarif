@@ -20,7 +20,11 @@ class Regulasi extends CI_Controller
         $this->load->view('V_Regulasi', $data);
     }
 
-
+    public function getNama($id)
+    {
+        $user = $this->M_Regulasi->getNama($id);
+        return $user->nama;
+    }
 
 
     public function halaman_tambah()
@@ -55,7 +59,8 @@ class Regulasi extends CI_Controller
             'nama' => $nama,
             'kering' => $kering,
             'cair' => $cair,
-            'keterangan' => $keterangan
+            'keterangan' => $keterangan,
+            'id_user' => $this->session->userdata('user_id')
         );
         if ($this->form_validation->run()) {
             $this->M_Regulasi->insertData($ArrInsert);
@@ -79,7 +84,8 @@ class Regulasi extends CI_Controller
             'nama' => $nama,
             'kering' => $kering,
             'cair' => $cair,
-            'keterangan' => $keterangan
+            'keterangan' => $keterangan,
+            'id_user' => $this->session->userdata('user_id')
         );
 
         $this->M_Regulasi->updateData($id, $ArrUpdate);

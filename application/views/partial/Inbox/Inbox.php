@@ -27,6 +27,7 @@
                             <th>Keterangan</th>
                             <th>Status</th>
 
+
                             <th>Aksi</th>
 
                         </tr>
@@ -39,9 +40,11 @@
                             <?php foreach ($queryAllInb as $row) : ?>
                                 <tr>
                                     <td><?php echo $no++ ?></td>
-                                    <td><?php echo $row->nama ?></td>
+                                    <td><?php echo $row->nama ?>
+                                    </td>
                                     <td><?php echo $row->keterangan ?></td>
                                     <td><?php echo $row->status ?></td>
+
 
                                     <td>
                                         <a href="<?php echo base_url('/Inbox/halaman_edit') ?>/<?php echo $row->id ?>" class="btn btn-sm btn-warning"><i class="fa fa-cancel">Edit</i></a>

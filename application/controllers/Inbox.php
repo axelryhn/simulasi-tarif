@@ -44,7 +44,7 @@ class Inbox extends CI_Controller
 
     public function getNama($id)
     {
-        $user = $this->M_Report->getNama($id);
+        $user = $this->M_Inbox->getNama($id);
         return $user->nama;
     }
 
@@ -77,7 +77,8 @@ class Inbox extends CI_Controller
         $ArrInsert = array(
             'nama' => $nama,
             'status' => $status,
-            'keterangan' => $keterangan
+            'keterangan' => $keterangan,
+            'id_user' => $this->session->userdata('user_id')
         );
         if ($this->form_validation->run()) {
             $this->M_Inbox->insertData($ArrInsert);
@@ -99,7 +100,8 @@ class Inbox extends CI_Controller
         $ArrUpdate = array(
             'nama' => $nama,
             'status' => $status,
-            'keterangan' => $keterangan
+            'keterangan' => $keterangan,
+            'id_user' => $this->session->userdata('user_id')
         );
 
         $this->M_Inbox->updateData($id, $ArrUpdate);

@@ -25,6 +25,12 @@ class Permohonan extends CI_Controller
         $this->load->view('V_Permohonan', $data);
     }
 
+    public function getNama($id)
+    {
+        $user = $this->M_Report->getNama($id);
+        return $user->nama;
+    }
+
     public function permohonan()
     {
         $this->form_validation->set_rules('nama', 'Nama', 'required');

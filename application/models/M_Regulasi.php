@@ -36,4 +36,11 @@ class M_Regulasi extends CI_Model
         $this->db->delete('tb_regulasi');
         $this->session->set_flashdata('msg_alert', 'Data regulasi berhasil dihapus');
     }
+
+    function getNama($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('tb_user');
+        return $query->row();
+    }
 }

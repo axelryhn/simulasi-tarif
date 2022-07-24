@@ -39,7 +39,8 @@
                 foreach ($queryAllRgl as $row) :
                     $nama = $row->nama;
                     $value = $_POST['data_' . $row->id];
-                    $a = array("nama" => $nama, "value" => $value);
+                    $keterangan = $_POST['data_' . $row->id];
+                    $a = array("nama" => $nama, "value" => $value, "keterangan" => $keterangan);
                     array_push($datas, $a);
                 endforeach;
                 $CI->simpanReport($operasi, $hasilnoFormat, json_encode($datas));
@@ -61,7 +62,7 @@
                 ?>
                         <div class="form-group">
                             <label for="kontainer">Jumlah <?php echo $row->nama; ?> <em><?php echo $row->keterangan; ?></em> </label>
-                            <input type="number" class="form-control" id="<?php echo "data_" . $row->id; ?>" name="<?php echo "data_" . $row->id; ?>" placeholder="Contoh: 15">
+                            <input type="text" class="form-control" id="<?php echo "data_" . $row->id; ?>" name="<?php echo "data_" . $row->id; ?>" placeholder="Contoh: 15">
                         </div>
                     <?php endforeach ?>
                 <?php } ?>

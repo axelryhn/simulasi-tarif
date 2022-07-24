@@ -29,12 +29,12 @@
             </a>
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="<?= base_url('Ebook/indexpegawai'); ?>">
               <i class="menu-icon mdi mdi-book"></i>
               <span class="menu-title">Surat Edaran</span>
             </a>
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <a class="nav-link" href="<?= base_url('Tarif/index'); ?>">

@@ -29,9 +29,9 @@ class Dashboard extends CI_Controller
 				// $data_content['total_organik_tno'] = $this->m_dashboard->pegawai_total_tno();
 				// $data_content['total_organik_pkwt'] = $this->m_dashboard->pegawai_total_pkwt();
 
-				$data['graph'] = $this->m_dashboard->graph_cabang();
+				// $data['graph'] = $this->m_dashboard->graph_cabang();
 
-				$data['graph_status'] = $this->m_dashboard->graph_status();
+				// $data['graph_status'] = $this->m_dashboard->graph_status();
 				$data['content'] = $this->load->view('partial/Dashboard/Admin', $data, true);
 				$this->load->view('V_Dashboard', $data);
 				break;
